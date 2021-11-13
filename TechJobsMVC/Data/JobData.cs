@@ -17,6 +17,8 @@ namespace TechJobsMVC.Data
         static private List<JobField> AllLocations = new List<JobField>();
         static private List<JobField> AllPositionTypes = new List<JobField>();
         static private List<JobField> AllCoreCompetencies = new List<JobField>();
+        static private List<JobField> ListAllJobs = new List<JobField>();
+        
 
         static public List<Job> FindAll()
         {
@@ -33,16 +35,18 @@ namespace TechJobsMVC.Data
 
             List<Job> jobs = new List<Job>();
 
-            if (value.ToLower().Equals("all"))
+          
+            if (value.ToLower().Equals("all") )
             {
                 return FindAll();
             }
 
-            if (column.Equals("all"))
+            else if (column.Equals("all"))
             {
                 jobs = FindByValue(value);
                 return jobs;
             }
+            
             foreach (Job job in AllJobs)
             {
 
